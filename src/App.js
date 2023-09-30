@@ -3,8 +3,13 @@ import './App.css';
 import Todo from './components/Todo';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
+import React, { useState } from "react";
 
 function App(props) {
+
+  function addTask(name) {
+    alert(name);
+  }
 
   const taskList = props.tasks?.map((task) => (
     <Todo
@@ -18,7 +23,7 @@ function App(props) {
   return (
     <div className='todoapp stack-large'>
       <h1>Day of Small Things List</h1>
-      <Form/>
+      <Form addTask={addTask}/>
       <div className='filters btn-group stack-exception'>
         <FilterButton/>
         <FilterButton/>
