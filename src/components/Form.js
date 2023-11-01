@@ -7,13 +7,14 @@ function Form(props) {
     // useState returns these two things, use array destructuring to capture them in separate variables
     const [name, setName] = useState("");
 
-    function handleChange(e) {
-        setName(e.target.value);
+    function handleChange(element) {
+        setName(element.target.value);
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        props.addTask(name);
+    function handleSubmit(element) {
+        element.preventDefault();
+        props.addTaskProp(name);
+        // 3. we use the same form prop within itself
         setName("");
     }
 
