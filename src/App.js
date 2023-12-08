@@ -13,14 +13,36 @@ function App(props) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false };
     setTasks([...tasks, newTask]);
   }
-  // 1. the function that listens created here
 
+  function toggleTaskCompleted(id) {
+
+    const updatedTasks = tasks.map((task) => {
+      if (id === task.id) {
+        return { ...task, completed: !task.completed}
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+    console.log(tasks[0]);
+  }
+
+  function deleteTask(id) {
+
+    const remainingTasks = tasks.filter((task) => id !== task.id);
+    setTasks(remainingTasks);
+    console.log(id);
+  }
+
+
+  // 1. the function that listens created here
   const taskList = tasks.map((task) => (
     <Todo
      id={task.id} 
      name={task.name}
       completed={task.completed} 
       key={task.id}
+      toggleTaskCompleted={toggleTaskCompleted}
+      deleteTask={deleteTask}
       />
   ));
 
