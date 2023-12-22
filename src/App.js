@@ -33,6 +33,16 @@ function App(props) {
     console.log(id);
   }
 
+  function editTask(id, newName) {
+    const editedTaskList = tasks.map((task) => {
+      if (id === task.id) {
+        return {...task, name: newName}
+      }
+      return task;
+    });
+    setTasks(editedTaskList)
+  }
+
 
   // 1. the function that listens created here
   const taskList = tasks.map((task) => (
@@ -43,6 +53,7 @@ function App(props) {
       key={task.id}
       toggleTaskCompleted={toggleTaskCompleted}
       deleteTask={deleteTask}
+      editTask={editTask}
       />
   ));
 
