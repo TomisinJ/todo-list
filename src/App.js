@@ -15,6 +15,7 @@ const FILTER_MAP = {
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 function App(props) {
+
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState("All");
 
@@ -52,20 +53,18 @@ function App(props) {
     setTasks(editedTaskList)
   }
 
-
-  // 1. the function that listens created here
   const taskList = tasks
   .filter(FILTER_MAP[filter])
   .map((task) => (
-    <Todo
-     id={task.id} 
-     name={task.name}
-      completed={task.completed} 
-      key={task.id}
-      toggleTaskCompleted={toggleTaskCompleted}
-      deleteTask={deleteTask}
-      editTask={editTask}
-      />
+    <Todo 
+    id={task.id} 
+    name={task.name} 
+    completed={task.completed} 
+    key={task.id} 
+    toggleTaskCompleted={toggleTaskCompleted} 
+    deleteTask={deleteTask} 
+    editTask={editTask}
+    />
   ));
 
   const filterList = FILTER_NAMES.map((name) => (
@@ -84,7 +83,6 @@ function App(props) {
     <div className='todoapp stack-large'>
       <h1>Task List</h1>
       <Form addTaskProp={addTask}/> 
-      {/* 2. This is where we create the prop for form */}
       <div className='filters btn-group stack-exception'>
         {filterList}
       </div>
@@ -100,8 +98,3 @@ function App(props) {
 }
 
 export default App;
-
-// Instead of this, we have taskList:
-// <Todo name='eat' completed={true} id='todo-0'/>
-// <Todo name='sleep' completed={false} id='todo-1'/>
-// <Todo name='repeat' completed={false} id='todo-2'/>

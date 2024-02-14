@@ -2,23 +2,20 @@ import React, { useState } from 'react'
 
 function Form(props) {
 
-    // set initial name value as "use hooks"
-    // function used to modify name is setName()
-    // useState returns these two things, use array destructuring to capture them in separate variables
     const [name, setName] = useState("");
 
-    function handleChange(element) {
-        setName(element.target.value);
+    function handleChange(e) {
+      setName(e.target.value);
     }
 
-    function handleSubmit(element) {
-        element.preventDefault();
-        props.addTaskProp(name);
-        // 3. we use the same form prop within itself
-        setName("");
+    function handleSubmit(event) {
+      event.preventDefault();
+      props.addTaskProp(name);
+      setName("");
     }
 
   return (
+
     <form onSubmit={handleSubmit}>
     <h2 className='label-wrapper'>
       <label htmlFor='new-todo-input' className='label__lg'>
