@@ -19,7 +19,7 @@ function Form(props) {
     <form onSubmit={handleSubmit}>
     <h2 className='label-wrapper'>
       <label htmlFor='new-todo-input' className='label__lg'>
-        What it do?
+        What's on the list?
       </label>
     </h2>
     <input

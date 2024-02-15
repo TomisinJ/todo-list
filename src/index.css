@@ -72,7 +72,6 @@ body {
     1.6rem/1.25 Menlo,
     sans-serif;
   background-color: #ffffff;
-  /* color: #4d4d4d; */
 }
 
 @media screen and (min-width: 620px) {
@@ -90,7 +89,7 @@ body {
 
 .btn {
   padding: 0.8rem 1rem 0.7rem;
-  border: 0.2rem solid #4d4d4d;
+  border: 0.2rem solid #ffce1f;
   border-radius: 40px;
   cursor: pointer;
   text-transform: capitalize;
@@ -98,27 +97,27 @@ body {
 
 .btn.toggle-btn {
   border-width: 1px;
-  color: #d3d3d3;
+  color: #ffce1f;
 }
 
 .btn.toggle-btn[aria-pressed="true"] {
   text-decoration: underline;
-  border-color: #4d4d4d;
+  border-color: #ffce1f;
 }
 
 .btn__danger {
   color: #fff;
-  background-color: #ca3c3c;
-  border-color: #bd2130;
+  background-color: #faa53e;
+  border-color: #ffce1f;
 }
 
 .btn__filter {
-  border-color: lightgrey;
+  border-color: #f98900;
 }
 
 .btn__primary {
   color: #fff;
-  background-color: #000;
+  background-color: #faa53e;
 }
 
 .btn-group {
@@ -180,14 +179,14 @@ body {
 /* End Global styles */
 
 .todoapp {
-  background: #d58d11;
+  background: #fff9a7;
   margin: 2rem 0 4rem 0;
   padding: 1rem;
   position: relative;
   box-shadow:
     0 2px 4px 0 rgba(0, 0, 0, 0.2),
     0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
-  border: 2px solid #491010;
+  border: 3px solid #000000;
   border-radius: 25px;
 }
 
