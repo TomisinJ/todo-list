@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import Todo from './components/Todo';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { nanoid } from 'nanoid';
 
 const FILTER_MAP = {
@@ -14,9 +13,22 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-function App(props) {
+function App() {
+  
+  const [tasks, setTasks] = useState([]);
 
-  const [tasks, setTasks] = useState(props.tasks);
+
+  useEffect(() => {
+    fetch('http://localhost:5000')
+    .then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+        console.log(data);
+        setTasks(data);
+    })
+  }, []);
+
   const [filter, setFilter] = useState("All");
 
   function addTask(name) {
@@ -92,6 +104,8 @@ function App(props) {
         className='todo-list stack-large stack-exception'
         aria-labelledby='list-heading'>
           {taskList}
+          <div>
+          </div>
       </ul>
     </div>    
   );
